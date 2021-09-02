@@ -1,4 +1,4 @@
-import pandas as pd
+#import pandas as pd
 #import yfinance as yf
 from yahoofinancials import YahooFinancials
 
@@ -10,13 +10,30 @@ n = 0
 lst = []
 
 #############
-# User input
+# Functions
 # https://www.marketwatch.com/tools/quotes/lookup.asp
-print("How many stocks do you want to analyze?", end= " ")
+def get_stock_tickers():
+    print("How many stocks do you want to analyze?", end= " ")
+    n = int(input())
+    for i in range(n):
+        print("Type in the ticker symbol of a stock and press enter:\n(database for help: https://www.marketwatch.com/tools/quotes/lookup.asp)", end=" ")
+        lst.append(str(input()))
+    return(lst)
+
+
+#############
+#############
+# Main
+print('Do you want to start an individual query [1] or do you want to check the usual suspects [2] ?' )
 n = int(input())
-for i in range(n):
-    print("Type in the ticker symbol of a stock and press enter:\n(database for help: https://www.marketwatch.com/tools/quotes/lookup.asp)", end=" ")
-    lst.append(str(input()))
+if n == 1:
+    get_stock_tickers()
+elif n == 2:
+    lst = ['TSLA','TEAM', 'MSFT']
+else:
+    print('What do you want?')
+    
+
 
 ############
 # Load the data for the stocks
@@ -37,6 +54,7 @@ print("done.")
 #Print results
 
 for i in range(len(lst)):
+    print('\n')
     print("Price to revenue ratio of", lst[i], ": ", key_statistics_data[lst[i]]["enterpriseToRevenue"])
     print("pegRatio of", lst[i], ": ", key_statistics_data[lst[i]]["pegRatio"])
     print("Estimate financials of", lst[i], ": ", stock_earnings_data[lst[i]]["financialsData"]["yearly"])
