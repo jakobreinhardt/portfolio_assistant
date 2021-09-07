@@ -1,6 +1,28 @@
-# This is the Readme file for my stock data project
+### Table of Contents
 
-The following files are included:
+1. [Project Description](#description)
+2. [Installtion](#installation)
+3. [File Descriptions](#files)
+4. [Credits](#credits)
+
+
+## Project Description <a name="description"></a>
+
+The motivation behind this project is to have a program that I can use to compare fundamentals for different stocks.
+
+-------------
+
+## Installation <a name="installation"></a>
+
+Use Python versions 3.*
+
+These additional libraries are needed:
+
+- yahoofinancials: https://pypi.org/project/yahoofinancials/
+
+
+-------------
+## File Descriptions <a name="files"></a>
 
 - main.py : This is the main program to execute
 
@@ -12,22 +34,10 @@ The following files are included:
 
 - Yahoo Ticker Symbols - September 2017.xlsx : is a file that summarizes Ticker symbols of common stocks. This list might be useful for my project
 
--------------
-## Installation
-
-These packages are needed:
-
-- yahoofinancials: https://pypi.org/project/yahoofinancials/
 
 -------------
 
-## Motivation
-
-The motivation behind this project is to have a program that I can use to compare fundamentals for different stocks.
-
--------------
-
-## Credits
+## Credits <a name="credits"></a>
 
 Tutorials that helped my in the creation of the project:
 
