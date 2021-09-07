@@ -2,9 +2,9 @@
 
 The following files are included:
 
-- main.py : This is the main progam to execute
+- main.py : This is the main program to execute
 
-- functions.py : includes the custom functions
+- functions.py : This modules includes the custom functions
 
 - my_portfolio_analysis.py : is a test to include my own portfolio into the project
 
