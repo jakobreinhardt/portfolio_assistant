@@ -1,9 +1,7 @@
 #import pandas as pd
 #import yfinance as yf
 from yahoofinancials import YahooFinancials
-
-# Tutorial: https://towardsdatascience.com/a-comprehensive-guide-to-downloading-stock-prices-in-python-2cd93ff821d4
-# Tutorial: https://pypi.org/project/yahoofinancials/
+import functions
 
 # Variable definition
 n = 0
@@ -31,13 +29,13 @@ if n == 1:
 elif n == 2:
     lst = ['TSLA','TEAM', 'MSFT']
 else:
-    print('What do you want?')
+    print('What do you want to do?')
     
 
 
 ############
 # Load the data for the stocks
-print("wait.")
+print("please wait.")
 
 yahoo_financials = YahooFinancials(lst)
 
@@ -48,13 +46,14 @@ stock_earnings_data = yahoo_financials.get_stock_earnings_data()
 historical_price_data = yahoo_financials.get_historical_price_data(start_date='2019-01-01', end_date='2019-12-31', time_interval='weekly')
 #financial_stmts = yahoo_financials.get_financial_stmts()
 
-print("done.")
+print("loading completed.")
 
 ###########
 #Print results
 
 for i in range(len(lst)):
     print('\n')
+    print("Price to earnings(EBITDA) ratio of", lst[i], ": ", key_statistics_data[lst[i]]["enterpriseToEbitda"])
     print("Price to revenue ratio of", lst[i], ": ", key_statistics_data[lst[i]]["enterpriseToRevenue"])
     print("pegRatio of", lst[i], ": ", key_statistics_data[lst[i]]["pegRatio"])
     print("Estimate financials of", lst[i], ": ", stock_earnings_data[lst[i]]["financialsData"]["yearly"])
