@@ -19,8 +19,7 @@ These packages are needed:
 
 ## Motivation
 
-The motivation behind this project is to have a program with which I can compare fundamental data for different
-stocks.
+The motivation behind this project is to have a program that I can use to compare fundamentals for different stocks.
 
 -------------
 
