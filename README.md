@@ -1,7 +1,7 @@
 ### Table of Contents
 
 1. [Project Description](#description)
-2. [Installtion](#installation)
+2. [Installation](#installation)
 3. [File Descriptions](#files)
 4. [Credits](#credits)
 
