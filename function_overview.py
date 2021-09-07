@@ -1,10 +1,7 @@
-
 import pandas as pd
 import yfinance as yf
 from yahoofinancials import YahooFinancials
 
-# Tutorial: https://towardsdatascience.com/a-comprehensive-guide-to-downloading-stock-prices-in-python-2cd93ff821d4
-# Tutorial: https://pypi.org/project/yahoofinancials/
 ########
 ## USING yfinance
 ########
