@@ -1,39 +1,19 @@
 #import pandas as pd
 #import yfinance as yf
 from yahoofinancials import YahooFinancials
-import functions
-
-# Variable definition
-n = 0
-lst = []
-
-#############
-# Functions
-# https://www.marketwatch.com/tools/quotes/lookup.asp
-def get_stock_tickers():
-    print("How many stocks do you want to analyze?", end= " ")
-    n = int(input())
-    for i in range(n):
-        print("Type in the ticker symbol of a stock and press enter:\n(database for help: https://www.marketwatch.com/tools/quotes/lookup.asp)", end=" ")
-        lst.append(str(input()))
-    return(lst)
+from functions import get_stock_tickers
 
 
-#############
-#############
-# Main
+
 print('Do you want to start an individual query [1] or do you want to check the usual suspects [2] ?' )
 n = int(input())
 if n == 1:
-    get_stock_tickers()
+    lst = get_stock_tickers()
 elif n == 2:
     lst = ['TSLA','TEAM', 'MSFT']
 else:
     print('What do you want to do?')
     
-
-
-############
 # Load the data for the stocks
 print("please wait.")
 
@@ -48,9 +28,7 @@ historical_price_data = yahoo_financials.get_historical_price_data(start_date='2
 
 print("loading completed.")
 
-###########
 #Print results
-
 for i in range(len(lst)):
     print('\n')
     print("Price to earnings(EBITDA) ratio of", lst[i], ": ", key_statistics_data[lst[i]]["enterpriseToEbitda"])

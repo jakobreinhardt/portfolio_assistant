@@ -1,4 +1,13 @@
 def get_stock_tickers():
+    
+    '''
+    This function reads user input on stocks to analyze
+    
+    input: none
+    
+    output: a list of stock ticker symbols to analyze
+    '''
+    
     print("How many stocks do you want to analyze?", end= " ")
     n = int(input())
     lst = []
