@@ -1,6 +1,7 @@
 import webbrowser
 
 
+####
 def get_stock_tickers():
     
     '''
@@ -15,9 +16,12 @@ def get_stock_tickers():
     print("How many stocks do you want to analyze?", end= " ")
     n = int(input())
     lst = []
-    print('We just opened the marketwatch webpage in your standard browser so you can search for the correct ticker symbols')
+    print('I just opened the marketwatch webpage in your standard browser so you can search for the correct ticker symbols.')
     webbrowser.open('https://www.marketwatch.com/tools/quotes/lookup.asp', new=1, autoraise=False)
     for i in range(n):
-        print("Type in the ticker symbol of a stock and press enter:\n(database for help: https://www.marketwatch.com/tools/quotes/lookup.asp)", end=" ")
+        print("Type in the ticker symbol of a stock (e.g. TSLA for Tesla, MSFT for Microsoft) and press enter:", end=" ")
         lst.append(str(input()))
     return(lst)
+
+
+####
