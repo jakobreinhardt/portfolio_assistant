@@ -16,9 +16,10 @@ The motivation behind this project is to have a program that I can use to compar
 
 Use Python versions 3.*
 
-These additional libraries are needed:
+These additional packages are needed:
 
 - yahoofinancials: https://pypi.org/project/yahoofinancials/
+
 
 -------------
 ## File Descriptions <a name="files"></a>
