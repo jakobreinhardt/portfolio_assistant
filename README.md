@@ -20,7 +20,6 @@ These additional libraries are needed:
 
 - yahoofinancials: https://pypi.org/project/yahoofinancials/
 
-
 -------------
 ## File Descriptions <a name="files"></a>
 

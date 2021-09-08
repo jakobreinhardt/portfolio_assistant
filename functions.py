@@ -1,7 +1,11 @@
+import webbrowser
+
+
 def get_stock_tickers():
     
     '''
     This function reads user input on stocks to analyze
+    A webbrowser is opened that helps the user search for stocks
     
     input: none
     
@@ -11,6 +15,8 @@ def get_stock_tickers():
     print("How many stocks do you want to analyze?", end= " ")
     n = int(input())
     lst = []
+    print('We just opened the marketwatch webpage in your standard browser so you can search for the correct ticker symbols')
+    webbrowser.open('https://www.marketwatch.com/tools/quotes/lookup.asp', new=1, autoraise=False)
     for i in range(n):
         print("Type in the ticker symbol of a stock and press enter:\n(database for help: https://www.marketwatch.com/tools/quotes/lookup.asp)", end=" ")
         lst.append(str(input()))
