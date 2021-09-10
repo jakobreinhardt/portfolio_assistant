@@ -32,7 +32,7 @@ These additional packages are needed:
 
 - my_portfolio_analysis.py : is a test to include my own portfolio into the project
 
-- tests.py : Is a file of testcode that you do not need to bother with
+- trials.py : Is a file of testcode that you do not need to bother with
 
 - Yahoo Ticker Symbols - September 2017.xlsx : is a file that summarizes Ticker symbols of common stocks. This list might be useful for my project
 
