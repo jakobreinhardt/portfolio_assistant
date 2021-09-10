@@ -24,11 +24,11 @@ These additional packages are needed:
 -------------
 ## File Descriptions <a name="files"></a>
 
-- main.py : This is the main program to execute
+- main.py : Execute this module to get data on some stocks
 
-- functions.py : This modules includes the custom functions
+- functions.py : This module includes the custom functions
 
-- classes.py : Set up a modules that includes classes such as the parent Asset class. Lets see if I will integrate that later on.
+- classes.py : Module that includes classes such as the parent Asset class. Lets see if I will integrate that later on.
 
 - my_portfolio_analysis.py : is a test to include my own portfolio into the project
 
