@@ -28,6 +28,8 @@ These additional packages are needed:
 
 - functions.py : This modules includes the custom functions
 
+- classes.py : Set up a modules that includes classes such as the parent Asset class. Lets see if I will integrate that later on.
+
 - my_portfolio_analysis.py : is a test to include my own portfolio into the project
 
 - tests.py : Is a file of testcode that you do not need to bother with

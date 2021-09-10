@@ -15,8 +15,7 @@ while k !=2:
         stock_list = get_stock_tickers()
 
         # Load the data for the stocks
-        print("loading data. please wait... :-)")
-        
+        print("loading data. please wait... :-)")     
         yahoo_financials = YahooFinancials(stock_list)
         
         stock_quote_type_data = yahoo_financials.get_stock_quote_type_data() #qualitative data of the company (e.g. Name)
@@ -25,9 +24,9 @@ while k !=2:
         stock_earnings_data = yahoo_financials.get_stock_earnings_data()
         historical_price_data = yahoo_financials.get_historical_price_data(start_date='2019-01-01', end_date='2019-12-31', time_interval='weekly')
         financial_stmts = yahoo_financials.get_financial_stmts('annual', 'income')
-        
         print("loading completed.")
-    
+        
+        
         #Print results
         for i in range(len(stock_list)):
             print('\n')
