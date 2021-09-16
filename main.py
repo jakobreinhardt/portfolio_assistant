@@ -37,11 +37,10 @@ while k !=2:
             try: print("Price to revenue ratio of", stock_quote_type_data[stock_list[i]]['longName'], ": ", key_statistics_data[stock_list[i]]["enterpriseToRevenue"])
             except: print('Could not load all relevant data')
         
-            
-            try: print("pegRatio of", stock_quote_type_data[stock_list[i]]['longName'], ": ", key_statistics_data[stock_list[i]]["pegRatio"])
+            try: print("Price-Earnings-Growth (PEG) Ratio of", stock_quote_type_data[stock_list[i]]['longName'], ": ", key_statistics_data[stock_list[i]]["pegRatio"])
             except: print('Could not load all relevant data')
             
-            try: print("Yearly Revenue and Earnings for 2017, 2018, 2019 and 2020", stock_quote_type_data[stock_list[i]]['longName'], ": ", stock_earnings_data[stock_list[i]]["financialsData"]["yearly"])
+            try: print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[stock_list[i]]['longName'], summary_data[stock_list[i]]['marketCap']/1000000000))
             except: print('Could not load all relevant data')
 
 
