@@ -21,9 +21,9 @@ while k !=2:
         stock_quote_type_data = yahoo_financials.get_stock_quote_type_data() #qualitative data of the company (e.g. Name)
         summary_data = yahoo_financials.get_summary_data() #quantitative data concerned with the trading stock
         key_statistics_data = yahoo_financials.get_key_statistics_data()
-        stock_earnings_data = yahoo_financials.get_stock_earnings_data()
-        historical_price_data = yahoo_financials.get_historical_price_data(start_date='2019-01-01', end_date='2019-12-31', time_interval='weekly')
-        financial_stmts = yahoo_financials.get_financial_stmts('annual', 'income')
+        #stock_earnings_data = yahoo_financials.get_stock_earnings_data()
+        #historical_price_data = yahoo_financials.get_historical_price_data(start_date='2019-01-01', end_date='2019-12-31', time_interval='weekly')
+        #financial_stmts = yahoo_financials.get_financial_stmts('annual', 'income')
         print("loading completed.")
         
         
