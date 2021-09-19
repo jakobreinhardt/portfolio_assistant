@@ -36,7 +36,7 @@ These additional packages are needed:
 
 - Yahoo Ticker Symbols - September 2017.xlsx : is a file that summarizes Ticker symbols of common stocks. This list might be useful for my project
 
-
+- Depot.csv: includes some stock names
 -------------
 
 ## Credits <a name="credits"></a>
