@@ -1,5 +1,5 @@
 import webbrowser
-
+import pandas as pd
 
 def get_stock_tickers():
     
@@ -44,3 +44,20 @@ def read_data_file(file_name):
             data_list.append(int(line))
             line = file.readline()
     file.close()
+    
+def read_portfolio():
+    
+    """Function to read portfolio data from csv.
+    the csv should include column names in the first row
+                
+    Args:
+        none
+        
+    Returns:
+        dateframe of portfolio information
+        
+    """
+    df = pd.read_csv("Depot.csv", delimiter=';',  skiprows=0, encoding= 'unicode_escape')
+    df.drop(index=df.index[-1], axis=0, inplace=True) # Letzte Zeile löschen 
+    
+    return(df)
