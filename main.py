@@ -9,6 +9,7 @@ import numpy as np
 
 # Ask for user input
 k = 0
+print('\n')
 print('Welcome to my stock data analysis program.')
 while k !=4:
     print('\n')
