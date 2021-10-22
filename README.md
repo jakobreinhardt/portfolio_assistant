@@ -47,6 +47,6 @@ Resources and APIs that helped my in the creation of the project:
 
 - https://www.openfigi.com/api
 	-- https://money.stackexchange.com/questions/2940/how-to-map-stock-ticker-symbols-to-isin-international-securities-identification
-
+	-- https://www.openfigi.com/about/news/2018/6/15/figi-equity-levels-of-assignment-english
 
 

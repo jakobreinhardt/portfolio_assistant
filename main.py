@@ -2,6 +2,9 @@ from yahoofinancials import YahooFinancials
 from functions import get_stock_tickers, read_portfolio, read_tickers, api_tickers
 import sys
 import webbrowser
+import time
+import pandas as pd
+import numpy as np
 
 
 # Ask for user input
@@ -11,7 +14,7 @@ while k !=4:
     print('\n')
     print('What do you want to do?')
     print('[1] Start a manual stock analysis')
-    print('[2] Analyze existing portfolio')
+    print('[2] Analyze existing portfolio  !!! This will take about 20 minutes due to API request speed !!! ')
     print('[3] Query Ticker Symbols based on ISIN number using an API')
     print('[4] Exit')
     k = input()
@@ -63,10 +66,26 @@ while k !=4:
         print("loading data. please wait... :-)")     
         # read portfolio
         portfolio = read_portfolio()
+        portfolio["Ticker"] = ""
         # read ticker symbol lists
-        tickers_excel, tickers_nasdaq = read_tickers()
+        #tickers_excel, tickers_nasdaq = read_tickers()
+        
+        # retrieve Ticker Symbol for each stock and append to dataframe
+        for index, row in portfolio.iterrows():
+            try: 
+                ticker = api_tickers(str(row['ISIN']))
+                print(ticker)
+                portfolio.loc[index, "Ticker"] = ticker
+            except: 
+                print('Could not retrieve data')
+                portfolio.loc[index, "Ticker"] = np.nan
+            time.sleep(12)
+            
+        
         print("loading completed.\nCurrent stock portfolio:")
         print(portfolio)
+        portfolio.to_csv('portfolio_with_ticker.csv')
+
         
     elif k == 3 or k == '3':
         print("Whats the ISIN of the Stock?")
@@ -79,6 +98,4 @@ while k !=4:
     else:
         print('\n')
         print('Invalid.')
-    
-
 

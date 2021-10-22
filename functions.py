@@ -85,17 +85,16 @@ def api_tickers(isin):
         string containing the ISIN
         
     Returns:
-        list that contains the ticker symbol amongst other information
+        ticker symbol at US Exchange
         
     """
         
     url = 'https://api.openfigi.com/v3/mapping'
     headers = {'Content-Type':'text/json'}
-    data = '[{"idType":"ID_ISIN","idValue":%s}]' % '"{}"'.format(isin)
+    data = '[{"idType":"ID_ISIN","exchCode":"US","idValue":%s}]' % '"{}"'.format(isin)
     
     r = requests.post(url, headers=headers, data=data)
-    output = r.json()
-    #df = pd.DataFrame(r.json()[0])
-    #print(df.iloc[2])
+    #output = r.json()
+    df = pd.DataFrame(r.json()[0])
     
-    return(output)
+    return(df.iloc[0,0]['ticker'])
