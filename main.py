@@ -1,10 +1,13 @@
 from yahoofinancials import YahooFinancials
-from functions import get_stock_tickers, read_portfolio
+from functions import get_stock_tickers, read_portfolio, read_tickers
 import sys
 import webbrowser
 
 # read portfolio
 portfolio = read_portfolio()
+
+# read ticker symbol list
+tickers = read_tickers()
 
 # Ask for user input
 k = 0

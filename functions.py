@@ -56,3 +56,19 @@ def read_portfolio():
     df.drop(index=df.index[-1], axis=0, inplace=True) # Letzte Zeile löschen 
     
     return(df)
+
+def read_tickers():
+    
+    """Function to read in a csv file containing common ticker symbols
+    
+    Args:
+        none
+        
+    Returns:
+        dataframe of tickr symbol information
+    
+    """
+    df = pd.read_excel("Yahoo Ticker Symbols - September 2017.xlsx", sheet_name="Stock", skiprows=3)
+    df.drop(columns=["Unnamed: 5", "Unnamed: 6", "Unnamed: 7"], inplace=True)
+    
+    return(df)
