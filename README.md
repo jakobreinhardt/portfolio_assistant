@@ -39,11 +39,13 @@ These additional packages are needed:
 
 ## Credits <a name="credits"></a>
 
-Tutorials and links that helped my in the creation of the project:
+Resources and APIs that helped my in the creation of the project:
 
 - https://towardsdatascience.com/a-comprehensive-guide-to-downloading-stock-prices-in-python-2cd93ff821d4
 
 - https://www.marketwatch.com/tools/quotes/lookup.asp
+
+- https://www.openfigi.com/api
 
 
 

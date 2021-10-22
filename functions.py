@@ -1,4 +1,6 @@
 import pandas as pd
+import requests
+
 
 def get_stock_tickers():
     
@@ -74,3 +76,26 @@ def read_tickers():
     df2 = pd.read_csv("nasdaq_screener_1634893842862.csv")
     
     return(df, df2)
+
+def api_tickers(isin):
+    
+    """Function to use the openFIGI API to retrieve ticker symbols based on the ISIN of a stock
+    
+    Args:
+        string containing the ISIN
+        
+    Returns:
+        list that contains the ticker symbol amongst other information
+        
+    """
+        
+    url = 'https://api.openfigi.com/v3/mapping'
+    headers = {'Content-Type':'text/json'}
+    data = '[{"idType":"ID_ISIN","idValue":%s}]' % '"{}"'.format(isin)
+    
+    r = requests.post(url, headers=headers, data=data)
+    output = r.json()
+    #df = pd.DataFrame(r.json()[0])
+    #print(df.iloc[2])
+    
+    return(output)

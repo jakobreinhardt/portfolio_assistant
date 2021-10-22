@@ -1,5 +1,5 @@
 from yahoofinancials import YahooFinancials
-from functions import get_stock_tickers, read_portfolio, read_tickers
+from functions import get_stock_tickers, read_portfolio, read_tickers, api_tickers
 import sys
 import webbrowser
 
@@ -7,12 +7,13 @@ import webbrowser
 # Ask for user input
 k = 0
 print('Welcome to my stock data analysis program.')
-while k !=3:
+while k !=4:
     print('\n')
     print('What do you want to do?')
     print('[1] Start a manual stock analysis')
     print('[2] Analyze existing portfolio')
-    print('[3] Exit')
+    print('[3] Query Ticker Symbols based on ISIN number using an API')
+    print('[4] Exit')
     k = input()
     
     if k == 1 or k =='1':
@@ -64,10 +65,15 @@ while k !=3:
         portfolio = read_portfolio()
         # read ticker symbol lists
         tickers_excel, tickers_nasdaq = read_tickers()
-        print("loading completed.")
+        print("loading completed.\nCurrent stock portfolio:")
         print(portfolio)
-
+        
     elif k == 3 or k == '3':
+        print("Whats the ISIN of the Stock?")
+        isin = str(input())
+        print(api_tickers(isin))
+
+    elif k == 4 or k == '4':
         print('See you soon.')
         sys.exit()
     else:
