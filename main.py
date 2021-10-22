@@ -65,15 +65,14 @@ while k !=3:
         # read ticker symbol lists
         tickers_excel, tickers_nasdaq = read_tickers()
         print("loading completed.")
-        print('Current portfolio is now available as variable "portfolio". Please use the command line to navigate.')
-        sys.exit()
+        print(portfolio)
 
     elif k == 3 or k == '3':
         print('See you soon.')
         sys.exit()
     else:
         print('\n')
-        print('Invalid. Please type in [1] or [2].')
+        print('Invalid.')
     
 
 
