@@ -30,13 +30,11 @@ These additional packages are needed:
 
 - classes.py : Module that includes classes such as the parent Asset class. Lets see if I will integrate that later on.
 
-- my_portfolio_analysis.py : is a test to include my own portfolio into the project
+- trials.py : Is a file of testcode that you do not need to bother with.
 
-- trials.py : Is a file of testcode that you do not need to bother with
+- Yahoo Ticker Symbols - September 2017.xlsx : is a file that summarizes Ticker symbols of common stocks.
 
-- Yahoo Ticker Symbols - September 2017.xlsx : is a file that summarizes Ticker symbols of common stocks. This list might be useful for my project
-
-- Depot.csv: includes some stock names
+- Depot.csv: includes some stock names.
 -------------
 
 ## Credits <a name="credits"></a>
