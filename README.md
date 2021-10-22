@@ -34,7 +34,7 @@ These additional packages are needed:
 
 - Yahoo Ticker Symbols - September 2017.xlsx : is a file that summarizes Ticker symbols of common stocks.
 
-- Depot.csv: includes some stock names.
+- portfolio.csv: includes some stock names.
 -------------
 
 ## Credits <a name="credits"></a>

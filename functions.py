@@ -54,7 +54,7 @@ def read_portfolio():
         dateframe of portfolio information
         
     """
-    df = pd.read_csv("Depot.csv", delimiter=';',  skiprows=0, encoding= 'unicode_escape')
+    df = pd.read_csv("portfolio.csv", delimiter=';',  skiprows=0, encoding= 'unicode_escape')
     df.drop(index=df.index[-1], axis=0, inplace=True) # Letzte Zeile löschen 
     
     return(df)
