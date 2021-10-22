@@ -1,6 +1,7 @@
 from yahoofinancials import YahooFinancials
 from functions import get_stock_tickers, read_portfolio
 import sys
+import webbrowser
 
 # read portfolio
 portfolio = read_portfolio()
@@ -15,6 +16,17 @@ while k !=2:
     print('[2] Exit')
     k = input()
     if k == 1 or k =='1':
+        print('Do you know the Ticker symbols?')
+        print('[1] Yes')
+        print('[2] No (A webpage will be opened to help you)')
+        i = input()
+        # open webpage only if help on Ticker symbols is needed
+        # A webbrowser is opened that helps the user search for stocks
+        if i == 2 or i =='2':  
+            print('I just opened the marketwatch webpage in your standard browser so you can search for the correct ticker symbols.')
+            webbrowser.open('https://www.marketwatch.com/tools/quotes/lookup.asp', new=1, autoraise=False)
+        
+        
         stock_list = get_stock_tickers()
 
         # Load the data for the stocks
