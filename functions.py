@@ -59,16 +59,18 @@ def read_portfolio():
 
 def read_tickers():
     
-    """Function to read in a csv file containing common ticker symbols
+    """Function to read in files containing common ticker symbols
     
     Args:
         none
         
     Returns:
-        dataframe of tickr symbol information
+        dataframe of ticker symbol information
     
     """
     df = pd.read_excel("Yahoo Ticker Symbols - September 2017.xlsx", sheet_name="Stock", skiprows=3)
     df.drop(columns=["Unnamed: 5", "Unnamed: 6", "Unnamed: 7"], inplace=True)
     
-    return(df)
+    df2 = pd.read_csv("nasdaq_screener_1634893842862.csv")
+    
+    return(df, df2)
