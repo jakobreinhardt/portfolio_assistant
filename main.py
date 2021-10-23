@@ -65,8 +65,24 @@ while k !=5:
     elif k == 2 or k == '2':
         portfolio = pd.read_csv('portfolio_with_ticker.csv')
         portfolio.drop(columns = 'Unnamed: 0', inplace=True)
+        
+        stock_list = portfolio['Ticker'].tolist()
+        
+        for index, element in enumerate(stock_list):
+            try:
+                yahoo_financials = YahooFinancials(element)
+                stock_quote_type_data = yahoo_financials.get_stock_quote_type_data()
+                key_statistics_data = yahoo_financials.get_key_statistics_data()
 
-
+                print("Price to revenue ratio of", stock_quote_type_data[element]['longName'], ": ", key_statistics_data[element]["enterpriseToRevenue"])
+                portfolio.loc[index, "Price to revenue"] = key_statistics_data[element]["enterpriseToRevenue"]
+            except:
+                print('Could not retrieve data')
+                portfolio.loc[index, "Price to revenue"] = np.nan
+        
+        print("loading completed.\nCurrent stock portfolio:")
+        print(portfolio)
+        portfolio.to_csv('portfolio_with_ticker_withPriceToRevenue.csv')
 
     elif k == 3 or k == '3':
         print("loading data. please wait... :-)")     
