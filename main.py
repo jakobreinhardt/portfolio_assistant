@@ -11,13 +11,14 @@ import numpy as np
 k = 0
 print('\n')
 print('Welcome to my stock data analysis program.')
-while k !=4:
+while k !=5:
     print('\n')
     print('What do you want to do?')
     print('[1] Start a manual stock analysis')
-    print('[2] Analyze existing portfolio  !!! This will take about 20 minutes due to API request speed !!! ')
-    print('[3] Query Ticker Symbols based on ISIN number using an API')
-    print('[4] Exit')
+    print('[2] Display metrics for current portfolio')
+    print('[3] Retrieve Ticker Symbols for the complete portfolio  !!! This will take about 20 minutes due to API request speed !!! ')
+    print('[4] Query Ticker Symbols manually based on ISIN number using an API')
+    print('[5] Exit')
     k = input()
     
     if k == 1 or k =='1':
@@ -27,7 +28,7 @@ while k !=4:
         i = input()
         # A webbrowser is opened that helps the user search for stocks
         if i == 2 or i =='2':  
-            print('I just opened the marketwatch webpage in your standard browser so you can search for the correct ticker symbols.')
+            print('I just opened a webpage in your standard browser so you can search for the correct ticker symbols.')
             webbrowser.open('https://finance.yahoo.com/lookup/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAD_j2nxxz9d9KQxok4X-j1OSRysQD9LUzRUQ7Z9PCZjdf7cGhWgyLmISIaHfq2gJzeTJs1mJ1vGgRnRzom1tqmD9Rctp0kh2vaHh-NcwNTPE-rqmG29bZzqefXj4IhP1QQBF36qlzzWIG6wK_oKsx3clfThu76jmxJwPJl9CBTgu', new=1, autoraise=False)
             # https://www.nasdaq.com/market-activity/stocks/screener
             # https://www.marketwatch.com/tools/quotes/lookup.asp
@@ -56,14 +57,18 @@ while k !=4:
         
             try: print("Price to revenue ratio of", stock_quote_type_data[stock_list[i]]['longName'], ": ", key_statistics_data[stock_list[i]]["enterpriseToRevenue"])
             except: print('Could not load all relevant data')
-        
-            try: print("Price-Earnings-Growth (PEG) Ratio of", stock_quote_type_data[stock_list[i]]['longName'], ": ", key_statistics_data[stock_list[i]]["pegRatio"])
-            except: print('Could not load all relevant data')
             
             try: print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[stock_list[i]]['longName'], summary_data[stock_list[i]]['marketCap']/1000000000))
             except: print('Could not load all relevant data')
 
+
     elif k == 2 or k == '2':
+        portfolio = pd.read_csv('portfolio_with_ticker.csv')
+        portfolio.drop(columns = 'Unnamed: 0', inplace=True)
+
+
+
+    elif k == 3 or k == '3':
         print("loading data. please wait... :-)")     
         # read portfolio
         portfolio = read_portfolio()
@@ -88,12 +93,15 @@ while k !=4:
         portfolio.to_csv('portfolio_with_ticker.csv')
 
         
-    elif k == 3 or k == '3':
+    elif k == 4 or k == '4':
         print("Whats the ISIN of the Stock?")
         isin = str(input())
-        print(api_tickers(isin))
+        try:
+            print(api_tickers(isin))
+        except:
+            print('This did not work.')
 
-    elif k == 4 or k == '4':
+    elif k == 5 or k == '5':
         print('See you soon.')
         sys.exit()
     else:
