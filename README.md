@@ -32,8 +32,6 @@ These additional packages are needed:
 
 - trials.py : Is a file of testcode that you do not need to bother with.
 
-- Yahoo Ticker Symbols - September 2017.xlsx : is a file that summarizes Ticker symbols of common stocks.
-
 - portfolio.csv: includes some stock names.
 -------------
 
@@ -42,8 +40,6 @@ These additional packages are needed:
 Resources and APIs that helped my in the creation of the project:
 
 - https://towardsdatascience.com/a-comprehensive-guide-to-downloading-stock-prices-in-python-2cd93ff821d4
-
-- https://www.marketwatch.com/tools/quotes/lookup.asp
 
 - https://www.openfigi.com/api
 	-- https://money.stackexchange.com/questions/2940/how-to-map-stock-ticker-symbols-to-isin-international-securities-identification

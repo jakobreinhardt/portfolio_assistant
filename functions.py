@@ -11,7 +11,7 @@ def get_stock_tickers():
     
     output: a list of stock ticker symbols to analyze
     '''
-    
+    print('\n')
     print("How many stocks do you want to analyze?", end= " ")
     n = int(input())
     lst = []
