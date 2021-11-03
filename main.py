@@ -5,6 +5,7 @@ import webbrowser
 import time
 import pandas as pd
 import numpy as np
+import time
 
 
 # Ask for user input
@@ -122,13 +123,15 @@ while k !=3:
         
                         print("Price to revenue ratio of", stock_quote_type_data[element]['longName'], ": ", key_statistics_data[element]["enterpriseToRevenue"])
                         portfolio.loc[index, "Price to revenue"] = key_statistics_data[element]["enterpriseToRevenue"]
+                        print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[stock_list[i]]['longName'], summary_data[stock_list[i]]['marketCap']/1000000000))
+                        portfolio.loc[index, "Price to revenue"] = summary_data[stock_list[i]]['marketCap']/1000000000
                     except:
                         print('Could not retrieve data')
                         portfolio.loc[index, "Price to revenue"] = np.nan
                 
                 print("loading completed.\nCurrent stock portfolio:")
                 print(portfolio)
-                portfolio.to_csv('portfolio_with_ticker_info.csv')
+                portfolio.to_csv('portfolio_with_ticker_info_',time.strftime("%Y-%m-%d"),'.csv')
     
             elif i == 3 or i == '3':
                 portfolio = pd.read_csv('portfolio_with_ticker_info.csv')
