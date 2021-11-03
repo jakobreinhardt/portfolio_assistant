@@ -12,6 +12,7 @@ import time
 k = 0
 print('\n')
 print('Welcome to my stock data analysis program.')
+
 while k !=3:
     print('\n')
     print('What do you want to do?')
@@ -132,7 +133,7 @@ while k !=3:
                 
                 print("loading completed.\nCurrent stock portfolio:")
                 print(portfolio)
-                portfolio.to_csv('portfolio_with_ticker_info_',time.strftime("%Y-%m-%d"),'.csv')
+                portfolio.to_csv('portfolio_with_ticker_info_'+time.strftime("%Y-%m-%d")+'.csv')
     
             elif i == 3 or i == '3':
                 portfolio = pd.read_csv('portfolio_with_ticker_info.csv')
