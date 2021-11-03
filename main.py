@@ -5,7 +5,9 @@ import webbrowser
 import time
 import pandas as pd
 import numpy as np
-import time
+#from datetime import date, timedelta
+import datetime
+
 
 
 # Ask for user input
@@ -134,10 +136,19 @@ while k !=3:
                 
                 print("loading completed.\nCurrent stock portfolio:")
                 print(portfolio)
-                portfolio.to_csv('portfolio_with_ticker_info_'+time.strftime("%Y-%m-%d")+'.csv')
+                portfolio.to_csv('portfolio_with_ticker_info_'+str(datetime.date.today())+'.csv')
     
             elif i == 3 or i == '3':
-                portfolio = pd.read_csv('portfolio_with_ticker_info.csv')
+                date = datetime.date.today()
+                end_date = datetime.date(2021, 11, 1)
+                delta = datetime.timedelta(days=1)
+                while date >= end_date:
+                    try: 
+                        portfolio = pd.read_csv('portfolio_with_ticker_info_'+str(date)+'.csv')
+                        break
+                    except: pass
+                    date -= delta
+
                 print(portfolio.sort_values(by = ['Price to revenue'], ascending = False).to_string())
                 
             elif i == 4 or i == '4':
