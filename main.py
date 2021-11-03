@@ -120,11 +120,12 @@ while k !=3:
                         yahoo_financials = YahooFinancials(element)
                         stock_quote_type_data = yahoo_financials.get_stock_quote_type_data()
                         key_statistics_data = yahoo_financials.get_key_statistics_data()
+                        summary_data = yahoo_financials.get_summary_data()
         
                         print("Price to revenue ratio of", stock_quote_type_data[element]['longName'], ": ", key_statistics_data[element]["enterpriseToRevenue"])
                         portfolio.loc[index, "Price to revenue"] = key_statistics_data[element]["enterpriseToRevenue"]
-                        print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[stock_list[i]]['longName'], summary_data[stock_list[i]]['marketCap']/1000000000))
-                        portfolio.loc[index, "Price to revenue"] = summary_data[stock_list[i]]['marketCap']/1000000000
+                        print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[element]['longName'], summary_data[element]['marketCap']/1000000000))
+                        portfolio.loc[index, "Price to revenue"] = summary_data[element]['marketCap']/1000000000
                     except:
                         print('Could not retrieve data')
                         portfolio.loc[index, "Price to revenue"] = np.nan
