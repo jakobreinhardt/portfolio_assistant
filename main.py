@@ -126,10 +126,11 @@ while k !=3:
                         print("Price to revenue ratio of", stock_quote_type_data[element]['longName'], ": ", key_statistics_data[element]["enterpriseToRevenue"])
                         portfolio.loc[index, "Price to revenue"] = key_statistics_data[element]["enterpriseToRevenue"]
                         print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[element]['longName'], summary_data[element]['marketCap']/1000000000))
-                        portfolio.loc[index, "Price to revenue"] = summary_data[element]['marketCap']/1000000000
+                        portfolio.loc[index, "Marketcap"] = summary_data[element]['marketCap']/1000000000
                     except:
                         print('Could not retrieve data')
                         portfolio.loc[index, "Price to revenue"] = np.nan
+                        portfolio.loc[index, "Marketcap"] = np.nan
                 
                 print("loading completed.\nCurrent stock portfolio:")
                 print(portfolio)
