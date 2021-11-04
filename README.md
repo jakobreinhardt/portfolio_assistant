@@ -14,7 +14,7 @@ The motivation behind this project is to have a program that I can use to compar
 
 ## Installation <a name="installation"></a>
 
-Use Python versions 3.*
+Use Python versions 3.8 or higher
 
 These additional packages are needed:
 
@@ -24,7 +24,9 @@ These additional packages are needed:
 -------------
 ## File Descriptions <a name="files"></a>
 
-- main.py : Execute this module to get data on some stocks
+- main.py : Main program that includes the full functionality
+
+- daily.py : Execute this to run the daily update for metrics on your portfolio
 
 - functions.py : This module includes the custom functions
 
