@@ -99,9 +99,11 @@ def retrieve_metrics():
             key_statistics_data = yahoo_financials.get_key_statistics_data()
             summary_data = yahoo_financials.get_summary_data()
 
-            print("Price to revenue ratio of", stock_quote_type_data[element]['longName'], ": ", key_statistics_data[element]["enterpriseToRevenue"])
+            print("Price to revenue ratio of", stock_quote_type_data[element]['longName'],
+                  ": ", key_statistics_data[element]["enterpriseToRevenue"])
             portfolio.loc[index, "Price to revenue"] = key_statistics_data[element]["enterpriseToRevenue"]
-            print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[element]['longName'], summary_data[element]['marketCap']/1000000000))
+            print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[element]['longName'], 
+                                                      summary_data[element]['marketCap']/1000000000))
             portfolio.loc[index, "Marketcap"] = summary_data[element]['marketCap']/1000000000
         except:
             print('Could not retrieve data')
@@ -162,9 +164,8 @@ def manual_stock_analysis():
     # A webbrowser is opened that helps the user search for stocks
     if i == 2 or i =='2':  
         print('A webpage was opened in your standard browser so you can search for the correct ticker symbols.')
-        webbrowser.open('https://finance.yahoo.com/lookup/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAD_j2nxxz9d9KQxok4X-j1OSRysQD9LUzRUQ7Z9PCZjdf7cGhWgyLmISIaHfq2gJzeTJs1mJ1vGgRnRzom1tqmD9Rctp0kh2vaHh-NcwNTPE-rqmG29bZzqefXj4IhP1QQBF36qlzzWIG6wK_oKsx3clfThu76jmxJwPJl9CBTgu', new=1, autoraise=False)
+        webbrowser.open('https://www.marketwatch.com/tools/quotes/lookup.asp', new=1, autoraise=False)
         # https://www.nasdaq.com/market-activity/stocks/screener
-        # https://www.marketwatch.com/tools/quotes/lookup.asp
         
     elif i == 3 or i == '3':
         m = 1
@@ -198,13 +199,16 @@ def manual_stock_analysis():
     for i in range(len(stock_list)):
         print('\n')
     
-        try: print("Price to earnings(EBITDA) ratio of", stock_quote_type_data[stock_list[i]]['longName'], ": ", key_statistics_data[stock_list[i]]["enterpriseToEbitda"])
+        try: print("Price to earnings(EBITDA) ratio of", stock_quote_type_data[stock_list[i]]['longName'], 
+                   ": ", key_statistics_data[stock_list[i]]["enterpriseToEbitda"])
         except: print('Could not load all relevant data')
     
-        try: print("Price to revenue ratio of", stock_quote_type_data[stock_list[i]]['longName'], ": ", key_statistics_data[stock_list[i]]["enterpriseToRevenue"])
+        try: print("Price to revenue ratio of", stock_quote_type_data[stock_list[i]]['longName'], 
+                   ": ", key_statistics_data[stock_list[i]]["enterpriseToRevenue"])
         except: print('Could not load all relevant data')
         
-        try: print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[stock_list[i]]['longName'], summary_data[stock_list[i]]['marketCap']/1000000000))
+        try: print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[stock_list[i]]['longName'], 
+                                                       summary_data[stock_list[i]]['marketCap']/1000000000))
         except: print('Could not load all relevant data')
         
 

@@ -24,13 +24,16 @@ while k !=3:
         i = 0
         while i != 4 or i != '4':
             print('\n')
-            print('This part of the programm runs an ETL-pipeline that reads in the current portfolio, uses an API to derive Ticker symbols for the stocks and finally loads and displays key metrics.')
+            print('This part of the programm runs an ETL-pipeline that reads in', 
+                  'the current portfolio, uses an API to derive Ticker symbols for',
+                  'the stocks and finally loads and displays key metrics.')
             print('If your portfolio is up to date you can skip parts 1 and 2.')
             print('\n')
+            print('Choose to:')
             print('[1] Retrieve Ticker Symbols for the complete portfolio')
             print('[2] Retrieve metrics for the complete portfolio')
             print('[3] Display metrics for the current portfolio')
-            print('[4] Exit ')
+            print('[4] Go back ')
             i = input()
             if i == 1 or i == '1':
                 get_ticker_symbols()
@@ -42,8 +45,12 @@ while k !=3:
                 display_portfolio()
                 
             elif i == 4 or i == '4':
-                print('See you soon.')
-                sys.exit()
+                break
+            
+            else:
+                print('\n')
+                print('Wrong input. Going back to main menu:')
+                break
 
     elif k == 3 or k == '3':
         print('See you soon.')
