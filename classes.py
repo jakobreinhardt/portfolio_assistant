@@ -6,6 +6,10 @@ class Asset:
     
     def __init__(self, price, marketcap):
         '''
+        Attributes
+        ----------
+        price
+        marketcap
         '''
 
         self.price = price
@@ -19,7 +23,7 @@ class Stock(Asset):
     
     def __init__(self, price, marketcap, isin, amount):
         '''
-        Parameters
+        Attributes
         ----------
         price : price of one share
         marketcap :marketcap of the company
@@ -36,7 +40,7 @@ class Stock(Asset):
         '''
         Changes Stock amount and Stock price according to splitfactor
         
-        input: splitfactor
+        arguments: splitfactor
         return: None
         '''
         
@@ -52,7 +56,7 @@ class Gold(Asset):
     
     def __init__(self, price, marketcap, quality, amount):
         '''
-        Parameters
+        Attributes
         ----------
         price : price for one ounce
         marketcap :marketcap of Gold
