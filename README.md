@@ -34,7 +34,7 @@ These additional packages are needed:
 
 - trials.py : Is a file of testcode that you do not need to bother with.
 
-- portfolio.csv: includes some stock names.
+- data folder: includes data of stocks either as input to or output of the pipelines
 -------------
 
 ## Credits <a name="credits"></a>

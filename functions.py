@@ -33,10 +33,11 @@ def get_ticker_symbols():
             print('Could not retrieve data')
             portfolio.loc[index, "Ticker"] = np.nan
         time.sleep(12)
-        
+       
+    portfolio.drop(columns = 'Unnamed: 0', inplace=True)
     print("Completed.\nCurrent stock portfolio:")
     print(portfolio)
-    portfolio.to_csv('portfolio_with_ticker.csv')
+    portfolio.to_csv('data/portfolio_with_ticker.csv')
     
 def read_portfolio():
     
@@ -51,7 +52,7 @@ def read_portfolio():
         dateframe of portfolio information
         
     """
-    df = pd.read_csv("portfolio.csv", delimiter=';',  skiprows=0, encoding= 'unicode_escape')
+    df = pd.read_csv("data/portfolio.csv", delimiter=';',  skiprows=0, encoding= 'unicode_escape')
     df.drop(index=df.index[-1], axis=0, inplace=True) # Letzte Zeile löschen 
     
     return(df)
@@ -87,7 +88,7 @@ def retrieve_metrics():
     
     output: none
     '''    
-    portfolio = pd.read_csv('portfolio_with_ticker.csv')
+    portfolio = pd.read_csv('data/portfolio_with_ticker.csv')
     portfolio.drop(columns = 'Unnamed: 0', inplace=True)
     
     stock_list = portfolio['Ticker'].tolist()
@@ -112,7 +113,7 @@ def retrieve_metrics():
     
     print("loading completed.\nCurrent stock portfolio:")
     print(portfolio)
-    portfolio.to_csv('portfolio_with_ticker_info_'+str(datetime.date.today())+'.csv')
+    portfolio.to_csv('data/portfolio_with_ticker_info_'+str(datetime.date.today())+'.csv')
     
 def display_portfolio():
     '''    
@@ -127,7 +128,7 @@ def display_portfolio():
     delta = datetime.timedelta(days=1)
     while date >= end_date:
         try: 
-            portfolio = pd.read_csv('portfolio_with_ticker_info_'+str(date)+'.csv')
+            portfolio = pd.read_csv('data/portfolio_with_ticker_info_'+str(date)+'.csv')
             break
         except: pass
         date -= delta
