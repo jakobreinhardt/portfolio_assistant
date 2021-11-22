@@ -34,7 +34,6 @@ def get_ticker_symbols():
             portfolio.loc[index, "Ticker"] = np.nan
         time.sleep(12)
        
-    portfolio.drop(columns = 'Unnamed: 0', inplace=True)
     print("Completed.\nCurrent stock portfolio:")
     print(portfolio)
     portfolio.to_csv('data/portfolio_with_ticker.csv')
@@ -129,6 +128,7 @@ def display_portfolio():
     while date >= end_date:
         try: 
             portfolio = pd.read_csv('data/portfolio_with_ticker_info_'+str(date)+'.csv')
+            portfolio.drop(columns = 'Unnamed: 0', inplace=True)
             break
         except: pass
         date -= delta
