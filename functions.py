@@ -30,7 +30,7 @@ def get_ticker_symbols():
             print(ticker)
             portfolio.loc[index, "Ticker"] = ticker
         except: 
-            print('Could not retrieve data')
+            print('Could not retrieve data for {}'.format(row['Wertpapiername']))
             portfolio.loc[index, "Ticker"] = np.nan
         time.sleep(12)
        
@@ -106,7 +106,7 @@ def retrieve_metrics():
                                                       summary_data[element]['marketCap']/1000000000))
             portfolio.loc[index, "Marketcap"] = summary_data[element]['marketCap']/1000000000
         except:
-            print('Could not retrieve data')
+            print('Could not retrieve data for {}'.format(element))
             portfolio.loc[index, "Price to revenue"] = np.nan
             portfolio.loc[index, "Marketcap"] = np.nan
     

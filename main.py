@@ -27,7 +27,7 @@ while k !=3:
             print('This part of the programm runs an ETL-pipeline that reads in', 
                   'the current portfolio, uses an API to derive Ticker symbols for',
                   'the stocks and finally loads and displays key metrics.')
-            print('If your portfolio is up to date you can skip parts 1 and 2.')
+            print('If your portfolio is up to date you can skip [1] and [2].')
             print('\n')
             print('Choose to:')
             print('[1] Retrieve Ticker Symbols for the complete portfolio')
