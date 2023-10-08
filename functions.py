@@ -77,7 +77,7 @@ def api_tickers(isin):
 
     return(df.iloc[0,0]['ticker'])
     
-def retrieve_metrics():
+def retrieve_metrics_full_portfolio():
     '''    
     reads the portfolio with Ticker information
     Uses the Yahoofinancials package to get stock data based on ticker information
@@ -94,16 +94,9 @@ def retrieve_metrics():
     
     for index, element in enumerate(stock_list):
         try:
-            yahoo_financials = YahooFinancials(element)
-            stock_quote_type_data = yahoo_financials.get_stock_quote_type_data()
-            key_statistics_data = yahoo_financials.get_key_statistics_data()
-            summary_data = yahoo_financials.get_summary_data()
+            stock_quote_type_data, key_statistics_data, summary_data = retrieve_metrics_per_stock(element)
 
-            print("Price to revenue ratio of", stock_quote_type_data[element]['longName'],
-                  ": ", key_statistics_data[element]["enterpriseToRevenue"])
             portfolio.loc[index, "Price to revenue"] = key_statistics_data[element]["enterpriseToRevenue"]
-            print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[element]['longName'], 
-                                                      summary_data[element]['marketCap']/1000000000))
             portfolio.loc[index, "Marketcap"] = summary_data[element]['marketCap']/1000000000
         except:
             print('Could not retrieve data for {}'.format(element))
@@ -113,6 +106,24 @@ def retrieve_metrics():
     print("loading completed.\nCurrent stock portfolio:")
     print(portfolio)
     portfolio.to_csv('data/portfolio_with_ticker_info_'+str(datetime.date.today())+'.csv')
+
+def retrieve_metrics_per_stock(ticker: str):
+    '''
+    Reads the stock information for one stock based on the ticker symbol
+    '''
+
+    yahoo_financials = YahooFinancials(ticker)
+    stock_quote_type_data = yahoo_financials.get_stock_quote_type_data()
+    key_statistics_data = yahoo_financials.get_key_statistics_data()
+    summary_data = yahoo_financials.get_summary_data()
+
+    print("Price to revenue ratio of", stock_quote_type_data[ticker]['longName'],
+            ": ", key_statistics_data[ticker]["enterpriseToRevenue"])
+    print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[ticker]['longName'], 
+                                    summary_data[ticker]['marketCap']/1000000000))
+    
+    return stock_quote_type_data, key_statistics_data, summary_data
+
     
 def display_portfolio():
     '''    

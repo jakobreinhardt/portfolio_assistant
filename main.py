@@ -1,4 +1,4 @@
-from functions import manual_stock_analysis, get_ticker_symbols, retrieve_metrics, display_portfolio
+from functions import manual_stock_analysis, get_ticker_symbols, retrieve_metrics_full_portfolio, display_portfolio
 import sys
 
 
@@ -39,7 +39,7 @@ while k !=3:
                 get_ticker_symbols()
                     
             elif i == 2 or i == '2':
-                retrieve_metrics()
+                retrieve_metrics_full_portfolio()
     
             elif i == 3 or i == '3':
                 display_portfolio()
