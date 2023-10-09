@@ -29,10 +29,6 @@ These additional packages are needed:
 
 - functions.py : This module includes the custom functions.
 
-- classes.py : Module that includes classes such as the parent Asset class. Currently unused.
-
-- trials.py : Is a file of testcode that you do not need to bother with.
-
 - /data : Includes data of stocks either as input to or output of the pipelines.
 
 - /.github/workflows/actions.yml : CI/CD file to run a pipeline that retrieves metrics for all assets.
