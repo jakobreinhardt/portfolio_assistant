@@ -36,7 +36,7 @@ def get_ticker_symbols():
        
     print("Completed.\nCurrent stock portfolio:")
     print(portfolio)
-    portfolio.to_csv('data/portfolio_with_ticker.csv')
+    portfolio.to_csv('data/portfolio_with_ticker.csv', index=False)
     
 def read_portfolio():
     
@@ -88,11 +88,10 @@ def retrieve_metrics_full_portfolio():
     output: none
     '''    
     portfolio = pd.read_csv('data/portfolio_with_ticker.csv')
-    portfolio.drop(columns = 'Unnamed: 0', inplace=True)
     
     stock_list = portfolio['Ticker'].tolist()
     
-    for index, element in enumerate(stock_list[:3]):
+    for index, element in enumerate(stock_list):
         try:
             stock_quote_type_data, key_statistics_data, summary_data = retrieve_metrics_per_stock(element)
 
@@ -105,7 +104,7 @@ def retrieve_metrics_full_portfolio():
     
     print("loading completed.\nCurrent stock portfolio:")
     print(portfolio)
-    portfolio.to_csv('data/portfolio_with_ticker_info_'+str(datetime.date.today())+'.csv')
+    portfolio.to_csv('data/portfolio_with_ticker_info_'+str(datetime.date.today())+'.csv', index=False)
 
 def retrieve_metrics_per_stock(ticker: str):
     '''
@@ -139,24 +138,12 @@ def display_portfolio():
     while date >= end_date:
         try: 
             portfolio = pd.read_csv('data/portfolio_with_ticker_info_'+str(date)+'.csv')
-            portfolio.drop(columns = 'Unnamed: 0', inplace=True)
             break
         except: pass
         date -= delta
 
     print(portfolio.sort_values(by = ['Price to revenue'], ascending = False).to_string())
     
-def etl_pipeline():
-    '''
-    ETL pipeline consisting of 3 steps 
-    Extract: extracts
-    Transform: 
-    Load:
-    
-    input: none
-    
-    output: none
-    '''    
 
 def manual_stock_analysis():
     '''
@@ -241,28 +228,6 @@ def get_stock_tickers():
         print("Type in the ticker symbol of a stock (e.g. TSLA for Tesla, MSFT for Microsoft) and press enter:", end=" ")
         lst.append(str(input()))
     return(lst)
-
-
-def read_data_file(file_name):
-    
-    """Function to read in data from a txt file. The txt file should have
-    one number (float) per line. The numbers are stored in the data attribute.
-                
-    Args:
-    file_name (string): name of a file to read from
-        
-    Returns:
-        None
-        
-    """
-            
-    with open(file_name) as file:
-        data_list = []
-        line = file.readline()
-        while line:
-            data_list.append(int(line))
-            line = file.readline()
-    file.close()
     
 
 def read_tickers():
