@@ -2,7 +2,7 @@ name: run ciscript.py
 
 on:
   schedule:
-    - cron: '0 0 * * 1 TZ='Europe/Paris'' # At 01:00 on Monday
+    - cron: '0 0 * * 1 TZ='Europe/Paris''
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9' # install the python version needed
+          python-version: '3.10.8'
           
       - name: install python packages
         run: |
