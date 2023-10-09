@@ -1,0 +1,3 @@
+from functions import retrieve_metrics_full_portfolio
+
+retrieve_metrics_full_portfolio()
