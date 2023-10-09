@@ -92,7 +92,7 @@ def retrieve_metrics_full_portfolio():
     
     stock_list = portfolio['Ticker'].tolist()
     
-    for index, element in enumerate(stock_list):
+    for index, element in enumerate(stock_list[:3]):
         try:
             stock_quote_type_data, key_statistics_data, summary_data = retrieve_metrics_per_stock(element)
 
