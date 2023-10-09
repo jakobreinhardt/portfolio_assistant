@@ -1,0 +1,5 @@
+yahoofinancials==1.16
+pandas
+requests==2.28.2
+numpy
+datetime
