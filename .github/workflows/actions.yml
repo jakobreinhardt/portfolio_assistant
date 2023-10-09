@@ -2,7 +2,7 @@ name: run ciscript.py
 
 on:
   schedule:
-    - cron: '0 0 * * 1 TZ='Europe/Paris''
+    - cron: '0 0 * * 1'
 
 jobs:
   build:
