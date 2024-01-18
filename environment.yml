@@ -80,5 +80,5 @@ dependencies:
     - requests==2.28.2
     - soupsieve==2.3.2.post1
     - urllib3==1.26.14
-    - yahoofinancials==1.16
+    - yahoofinancials==1.20
 prefix: C:\Users\jakob\anaconda3\envs\myenv
