@@ -7,7 +7,7 @@ import time
 import datetime
 
 
-def get_ticker_symbols():
+def get_ticker_symbols() -> None:
     '''   
     This function reads in the a csv file containing portfolio information
     For each row the api_tickers function is used to retrieve ticker symbols using an API
@@ -38,7 +38,7 @@ def get_ticker_symbols():
     print(portfolio)
     portfolio.to_csv('data/portfolio_with_ticker.csv', index=False)
     
-def read_portfolio():
+def read_portfolio() -> pd.DataFrame:
     
     """
     Function to read portfolio data from csv.
@@ -56,7 +56,7 @@ def read_portfolio():
     
     return(df)
 
-def api_tickers(isin):
+def api_tickers(isin:str) -> str:
     """
     Function to use the openFIGI API to retrieve ticker symbols based on the ISIN of a stock
     
@@ -77,7 +77,7 @@ def api_tickers(isin):
 
     return(df.iloc[0,0]['ticker'])
     
-def retrieve_metrics_full_portfolio():
+def retrieve_metrics_full_portfolio() -> None:
     '''    
     reads the portfolio with Ticker information
     Uses the Yahoofinancials package to get stock data based on ticker information
@@ -106,7 +106,7 @@ def retrieve_metrics_full_portfolio():
     print(portfolio)
     portfolio.to_csv('data/portfolio_with_ticker_info_'+str(datetime.date.today())+'.csv', index=False)
 
-def retrieve_metrics_per_stock(ticker: str):
+def retrieve_metrics_per_stock(ticker: str) -> tuple:
     '''
     Reads the stock information for one stock based on the ticker symbol
     '''
@@ -124,7 +124,7 @@ def retrieve_metrics_per_stock(ticker: str):
     return stock_quote_type_data, key_statistics_data, summary_data
 
     
-def display_portfolio():
+def display_portfolio() -> None:
     '''    
     prints the latest portfolio with additional information and metrics
     
@@ -145,7 +145,7 @@ def display_portfolio():
     print(portfolio.sort_values(by = ['Price to revenue'], ascending = False).to_string())
     
 
-def manual_stock_analysis():
+def manual_stock_analysis() -> None:
     '''
     This function allows a manual stock analysis of one or multiple stocks. 
     Based on the user input of an ISIN number it prints the results
@@ -211,8 +211,7 @@ def manual_stock_analysis():
         except: print('Could not load all relevant data')
         
 
-def get_stock_tickers():
-    
+def get_stock_tickers() -> list:
     '''
     This function reads user input on the amount and ISIN numbers of stocks to analyze
     
@@ -230,7 +229,7 @@ def get_stock_tickers():
     return(lst)
     
 
-def read_tickers():
+def read_tickers() -> tuple:
     
     """Function to read in files containing common ticker symbols
     

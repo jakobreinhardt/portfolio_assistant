@@ -3,3 +3,4 @@ pandas
 requests==2.28.2
 numpy
 datetime
+pytest
