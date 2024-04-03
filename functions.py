@@ -183,32 +183,9 @@ def manual_stock_analysis() -> None:
             m = input()
         
     stock_list = get_stock_tickers()
-    print("loading data. please wait... :-)")     
-    yahoo_financials = YahooFinancials(stock_list)
     
-    stock_quote_type_data = yahoo_financials.get_stock_quote_type_data() #qualitative data of the company (e.g. Name)
-    summary_data = yahoo_financials.get_summary_data() #quantitative data concerned with the trading stock
-    key_statistics_data = yahoo_financials.get_key_statistics_data()
-    #stock_earnings_data = yahoo_financials.get_stock_earnings_data()
-    #historical_price_data = yahoo_financials.get_historical_price_data(start_date='2019-01-01', end_date='2019-12-31', time_interval='weekly')
-    #financial_stmts = yahoo_financials.get_financial_stmts('annual', 'income')
-    print("loading completed.")
-    
-    #Print results
-    for i in range(len(stock_list)):
-        print('\n')
-    
-        try: print("Price to earnings(EBITDA) ratio of", stock_quote_type_data[stock_list[i]]['longName'], 
-                   ": ", key_statistics_data[stock_list[i]]["enterpriseToEbitda"])
-        except: print('Could not load all relevant data')
-    
-        try: print("Price to revenue ratio of", stock_quote_type_data[stock_list[i]]['longName'], 
-                   ": ", key_statistics_data[stock_list[i]]["enterpriseToRevenue"])
-        except: print('Could not load all relevant data')
-        
-        try: print('Marketcap of {}: {:.2f} B$'.format(stock_quote_type_data[stock_list[i]]['longName'], 
-                                                       summary_data[stock_list[i]]['marketCap']/1000000000))
-        except: print('Could not load all relevant data')
+    for ticker in stock_list:
+        retrieve_metrics_per_stock(ticker)
         
 
 def get_stock_tickers() -> list:
