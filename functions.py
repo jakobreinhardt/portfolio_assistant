@@ -5,6 +5,7 @@ import webbrowser
 from yahoofinancials import YahooFinancials
 import time
 import datetime
+from func_timeout import func_timeout, FunctionTimedOut
 
 
 def get_ticker_symbols() -> None:
@@ -93,14 +94,18 @@ def retrieve_metrics_full_portfolio() -> None:
     
     for index, element in enumerate(stock_list):
         try:
+            func_timeout(30, retrieve_metrics_per_stock, args=(element,))
             stock_quote_type_data, key_statistics_data, summary_data = retrieve_metrics_per_stock(element)
-
             portfolio.loc[index, "Price to revenue"] = key_statistics_data[element]["enterpriseToRevenue"]
             portfolio.loc[index, "Marketcap"] = summary_data[element]['marketCap']/1000000000
+        except FunctionTimedOut:
+            print('Timeout: Could not retrieve data for {}'.format(element))
+            portfolio.loc[index, "Price to revenue"] = 'timeout'
+            portfolio.loc[index, "Marketcap"] = 'timeout'
         except:
             print('Could not retrieve data for {}'.format(element))
-            portfolio.loc[index, "Price to revenue"] = np.nan
-            portfolio.loc[index, "Marketcap"] = np.nan
+            portfolio.loc[index, "Price to revenue"] = 'other error'
+            portfolio.loc[index, "Marketcap"] = 'other error'
     
     print("loading completed.\nCurrent stock portfolio:")
     print(portfolio)
